@@ -1,6 +1,8 @@
 import searchIcon from "../assets/search-icon.svg";
 import classes from "./SearchBar.module.css";
 
+import { useSelector } from "react-redux";
+
 const SearchBar = () => {
   return (
     <form>

@@ -6,8 +6,10 @@ const Layout = (props) => {
   return (
     <div className={classes.layout}>
       <Header />
-      <SearchBar />
-      <main> {props.children}</main>
+      <div className={classes.main}>
+        <SearchBar />
+        <main> {props.children}</main>
+      </div>
     </div>
   );
 };

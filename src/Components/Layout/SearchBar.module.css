@@ -1,6 +1,5 @@
 form {
-  width: 100%;
-  margin: 4rem 2rem 2rem 0;
+  width: 90%;
 }
 .searchBar {
   display: flex;
@@ -13,7 +12,7 @@ form {
 }
 
 .searchBar input {
-  width: 100%;
+  width: 97%;
   font-family: "outfit", sans-serif;
   font-weight: 300;
   font-size: 24px;
@@ -23,10 +22,26 @@ form {
   border: none;
   outline: none;
   padding-bottom: 1rem;
+  padding-right: 300px;
 }
 
-.searchBar input:focus {
-  border-bottom: 1px solid #5a698f;
+input:focus + .border,
+.expand:focus .border {
+  transform: scaleX(1);
+}
+
+.searchInput {
+  width: 97%;
+}
+
+.searchBar .border {
+  position: relative;
+  height: 1px;
+  width: 97%;
+  background: #5a698f;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+  transform-origin: 0% 50%;
 }
 
 .searchBar input::placeholder {

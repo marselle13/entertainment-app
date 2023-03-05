@@ -9,7 +9,7 @@ const Home = () => {
         <h3 className={classes.label}>Trending</h3>
         <Slide />
       </div>
-      <div>
+      <div className={classes.recommend}>
         <h3 className={classes.label}>Recommended for you</h3>
         <Recommend />
       </div>

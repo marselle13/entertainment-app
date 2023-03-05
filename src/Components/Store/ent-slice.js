@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { items: [], trendings: [] };
+const initialState = { items: [], trendings: [], recommened: [] };
 
 const entSlice = createSlice({
   name: "ent",
@@ -9,11 +9,13 @@ const entSlice = createSlice({
     replaceEnt(state, action) {
       state.items = action.payload;
     },
-    filterEnt(state) {
-      if (!state.items) return;
-
+    filterTrending(state) {
       const trending = state.items.filter((item) => item.isTrending === true);
       state.trendings = trending;
+    },
+    filterRec(state) {
+      const recommend = state.items.filter((item) => item.isTrending === false);
+      state.recommened = recommend;
     },
   },
 });

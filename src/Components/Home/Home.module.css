@@ -9,3 +9,6 @@
 .slider {
   position: relative;
 }
+.recommend {
+  max-width: 1700px;
+}

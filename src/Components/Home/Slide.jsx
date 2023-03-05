@@ -21,11 +21,11 @@ const Slide = () => {
     autoplaySpeed: 3000,
   };
   useEffect(() => {
-    dispatch(entActions.filterEnt());
+    dispatch(entActions.filterTrending());
   }, [ent, dispatch]);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", maxWidth: "1700px" }}>
       <Slider {...settings}>
         {trending.map((item, index) => {
           return (

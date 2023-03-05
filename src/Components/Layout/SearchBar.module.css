@@ -1,5 +1,5 @@
 form {
-  width: 95%;
+  width: 100%;
 }
 .searchBar {
   position: relative;
@@ -13,7 +13,7 @@ form {
 }
 
 .searchBar input {
-  width: 100%;
+  width: 95%;
   font-family: "outfit", sans-serif;
   font-weight: 300;
   font-size: 24px;
@@ -23,8 +23,8 @@ form {
   border: none;
   outline: none;
   padding-bottom: 1rem;
-  caret-color: #fc4747;
   padding-right: 300px;
+  caret-color: #fc4747;
 }
 
 input:focus + .border,
@@ -33,13 +33,13 @@ input:focus + .border,
 }
 
 .searchInput {
-  width: 100%;
+  width: 95%;
 }
 
 .searchBar .border {
   position: absolute;
   height: 1px;
-  width: 100%;
+  width: 95%;
   background: #5a698f;
   transform: scaleX(0);
   transition: transform 0.5s;

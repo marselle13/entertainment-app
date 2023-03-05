@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { useDispatch, useSelector } from "react-redux";
 import CardSlider from "../UI/CardSlider";
 import { entActions } from "../Store/ent-slice";
-import "./slick.css";
 
 const Slide = () => {
   const ent = useSelector((state) => state.ent.items);
@@ -18,6 +17,9 @@ const Slide = () => {
     speed: 500,
     slidesToShow: 2.5,
     slidesToScroll: 1,
+    initialSlide: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
 
     responsive: [
       {
@@ -30,6 +32,7 @@ const Slide = () => {
           slidesToShow: 1.5,
           slidesToScroll: 1,
           initialSlide: 1,
+          autoplay: true,
           autoplaySpeed: 3000,
         },
       },
@@ -56,6 +59,7 @@ const Slide = () => {
               year={item.year}
               type={item.category}
               rating={item.rating}
+              isBookmark={item.isBookmarked}
             />
           );
         })}

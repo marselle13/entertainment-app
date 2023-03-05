@@ -16,11 +16,7 @@ const CardInfo = (props) => {
         <li>
           <div className={classes.type}>
             <span>
-              {props.type === "Movie" ? (
-                <img src={movie} alt="movie" />
-              ) : (
-                <img src={series} alt="serie" />
-              )}
+              <img src={props.type === "Movie" ? movie : series} alt="movie" />
             </span>
             {props.type}
           </div>

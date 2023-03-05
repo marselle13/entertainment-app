@@ -11,7 +11,6 @@ const Recommend = () => {
   useEffect(() => {
     dispatch(entActions.filterRec());
   }, [ent, dispatch]);
-  console.log(rec);
 
   return (
     <div className={classes.grid}>
@@ -24,6 +23,7 @@ const Recommend = () => {
             year={item.year}
             rating={item.rating}
             background={item.thumbnail.regular.large}
+            isBookmark={item.isBookmarked}
           />
         );
       })}

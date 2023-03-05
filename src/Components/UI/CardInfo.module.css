@@ -66,8 +66,9 @@
 
 @media (max-width: 620px) {
   .descriptionSlider ul {
-    font-size: 15px;
-    line-height: 19px;
+    font-size: 12px;
+    line-height: 15px;
+    gap: 22px;
   }
 
   .description ul {

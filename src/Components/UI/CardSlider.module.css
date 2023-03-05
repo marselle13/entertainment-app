@@ -48,6 +48,7 @@
 
 @media (max-width: 620px) {
   .background {
+    padding: 16px;
     min-height: 140px;
     margin-right: 16px;
   }

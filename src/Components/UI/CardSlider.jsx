@@ -1,5 +1,6 @@
 import classes from "./CardSlider.module.css";
 import bookmarkIcon from "../assets/icon-bookmark-empty.svg";
+import bookmarkedIcon from "../assets/icon-bookmark-full.svg";
 import CardInfo from "./CardInfo";
 import PlayButton from "./PlayButton";
 
@@ -23,7 +24,7 @@ const CardSlider = (props) => {
       </div>
 
       <button className={classes.bookmark}>
-        <img src={bookmarkIcon} alt="" />
+        <img src={props.isBookmark ? bookmarkedIcon : bookmarkIcon} alt="" />
       </button>
     </div>
   );

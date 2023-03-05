@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./slide.css";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../UI/Card";
+
 import { entActions } from "../Store/ent-slice";
 
 const Slide = () => {
@@ -29,10 +30,17 @@ const Slide = () => {
     <div style={{ position: "relative" }}>
       <Slider {...settings}>
         {trending.map((item, index) => {
+          console.log(item);
+
           return (
-            <>
-              <Card title={item.title} />
-            </>
+            <Card
+              title={item.title}
+              background={item.thumbnail.trending.large}
+              key={index}
+              year={item.year}
+              type={item.category}
+              rating={item.rating}
+            />
           );
         })}
       </Slider>

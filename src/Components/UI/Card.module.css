@@ -25,6 +25,12 @@
   opacity: 0.75;
   margin: 0;
 }
+.background .type {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .background .dot {
   list-style: none;
 }

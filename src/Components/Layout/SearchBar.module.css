@@ -23,6 +23,7 @@ form {
   border: none;
   outline: none;
   padding-bottom: 1rem;
+  caret-color: #fc4747;
   padding-right: 300px;
 }
 

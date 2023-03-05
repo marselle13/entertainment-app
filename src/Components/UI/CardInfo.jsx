@@ -4,7 +4,13 @@ import classes from "./CardInfo.module.css";
 
 const CardInfo = (props) => {
   return (
-    <div className={classes.description}>
+    <div
+      className={
+        props.info === "slider"
+          ? classes.descriptionSlider
+          : classes.description
+      }
+    >
       <ul>
         <li className={classes.dot}>{props.year}</li>
         <li>

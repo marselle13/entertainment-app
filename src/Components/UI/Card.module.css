@@ -2,35 +2,35 @@
   width: 100%;
 }
 
-.cardImage:hover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
+@media (min-width: 620px) {
+  .cardImage:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 
-.playDiv {
-  visibility: hidden;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-}
+  .playDiv {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
 
-.cardImage:hover .playDiv {
-  visibility: visible;
+  .cardImage:hover .playDiv {
+    visibility: visible;
+  }
 }
-
 .cardImage {
   position: relative;
   display: inline-block;
 }
-
 .cardImage img {
   width: 100%;
   border-radius: 8px;
@@ -53,4 +53,15 @@
   width: 11px;
   height: 14px;
   border-radius: 0%;
+}
+
+@media (max-width: 620px) {
+  .cardImage .bookmark {
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+
+  .playDiv {
+    display: none;
+  }
 }

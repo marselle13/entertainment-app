@@ -4,11 +4,36 @@
   line-height: 40px;
   letter-spacing: -0.5px;
   color: #ffffff;
+  margin-bottom: 25px;
 }
 
 .slider {
   position: relative;
 }
 .recommend {
+  margin-right: 24px;
   max-width: 1700px;
+}
+
+@media (max-width: 1024px) {
+  .recommend {
+    margin: 24px;
+  }
+  .slider {
+    margin: 16px 0 0 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  .label {
+    margin-bottom: 16px;
+  }
+
+  .slider {
+    margin: 24px 0 16px 16px;
+  }
+
+  .recommend {
+    margin: 0 16px;
+  }
 }

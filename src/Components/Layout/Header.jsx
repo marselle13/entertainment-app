@@ -16,8 +16,11 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
+      <div className={classes.mobile}>
+        <img src={mainIcon} alt="main" />
+      </div>
       <div className={classes.navigation}>
-        <div>
+        <div className={classes.desktop}>
           <img src={mainIcon} alt="main" />
         </div>
         <nav>

@@ -16,6 +16,7 @@ const Card = (props) => {
         </button>
       </div>
       <CardInfo
+        info="desciption"
         type={props.type}
         year={props.year}
         title={props.title}

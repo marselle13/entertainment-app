@@ -23,7 +23,7 @@ form {
   border: none;
   outline: none;
   padding-bottom: 1rem;
-  padding-right: 300px;
+
   caret-color: #fc4747;
 }
 
@@ -51,4 +51,26 @@ input:focus + .border,
   color: #ffffff;
   mix-blend-mode: normal;
   opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .searchBar .border {
+    width: 90%;
+  }
+
+  form {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .searchBar .border {
+    width: 85%;
+  }
+
+  .searchBar input::placeholder {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }

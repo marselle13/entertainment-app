@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useDispatch, useSelector } from "react-redux";
 import CardSlider from "../UI/CardSlider";
 import { entActions } from "../Store/ent-slice";
+import "./slick.css";
 
 const Slide = () => {
   const ent = useSelector((state) => state.ent.items);
@@ -15,17 +16,36 @@ const Slide = () => {
     arrows: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 2.5,
     slidesToScroll: 1,
 
-    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          dots: false,
+          arrows: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          autoplaySpeed: 3000,
+        },
+      },
+    ],
   };
   useEffect(() => {
     dispatch(entActions.filterTrending());
   }, [ent, dispatch]);
 
   return (
-    <div style={{ position: "relative", maxWidth: "1700px" }}>
+    <div
+      style={{
+        position: "relative",
+        maxWidth: "1700px",
+      }}
+    >
       <Slider {...settings}>
         {trending.map((item, index) => {
           return (

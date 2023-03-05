@@ -12,6 +12,7 @@ const CardSlider = (props) => {
       }}
     >
       <CardInfo
+        info="slider"
         type={props.type}
         year={props.year}
         title={props.title}

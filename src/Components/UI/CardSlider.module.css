@@ -3,20 +3,37 @@
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 0.5rem;
-  width: 84%;
-  min-height: 240px;
+  min-height: 230px;
   display: flex;
   justify-content: space-between;
   padding: 24px;
+  display: flex;
+  margin-right: 40px;
 }
-.background:hover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+
+@media (min-width: 620px) {
+  .background:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .background:hover .playDiv {
+    visibility: visible;
+  }
+
+  .playDiv {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    align-self: center;
+  }
 }
 
 .bookmark {
@@ -29,16 +46,13 @@
   border-radius: 100%;
 }
 
-.background:hover .playDiv {
-  visibility: visible;
-}
+@media (max-width: 620px) {
+  .background {
+    min-height: 140px;
+    margin-right: 16px;
+  }
 
-.playDiv {
-  visibility: hidden;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-
-  align-self: center;
+  .playDiv {
+    display: none;
+  }
 }

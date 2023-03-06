@@ -13,7 +13,9 @@ const Series = () => {
     dispatch(entActions.filterSeries());
   }, [ent, dispatch]);
 
-  console.log(series);
+  const bookmarkHandler = (title) => {
+    dispatch(entActions.toggle(title));
+  };
 
   return (
     <div className={classes.series}>
@@ -31,6 +33,7 @@ const Series = () => {
               year={item.year}
               rating={item.rating}
               isBookmark={item.isBookmarked}
+              onClick={() => bookmarkHandler(item.title)}
             />
           );
         })}

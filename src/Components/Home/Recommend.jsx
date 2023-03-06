@@ -12,6 +12,10 @@ const Recommend = () => {
     dispatch(entActions.filterRec());
   }, [ent, dispatch]);
 
+  const bookmarkHandler = (title) => {
+    dispatch(entActions.toggle(title));
+  };
+
   return (
     <Grid>
       {rec.map((item, index) => {
@@ -24,6 +28,7 @@ const Recommend = () => {
             rating={item.rating}
             background={item.thumbnail.regular.large}
             isBookmark={item.isBookmarked}
+            onClick={() => bookmarkHandler(item.title)}
           />
         );
       })}

@@ -23,7 +23,7 @@ const CardSlider = (props) => {
         <PlayButton />
       </div>
 
-      <button className={classes.bookmark}>
+      <button className={classes.bookmark} onClick={props.onClick}>
         <img src={props.isBookmark ? bookmarkedIcon : bookmarkIcon} alt="" />
       </button>
     </div>

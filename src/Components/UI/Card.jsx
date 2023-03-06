@@ -12,9 +12,9 @@ const Card = (props) => {
           <PlayButton />
         </div>
         <img src={props.background} alt="" />
-        <button className={classes.bookmark}>
+        <button className={classes.bookmark} onClick={props.onClick}>
           <img
-            src={props.isBookmark ? bookmarkIcon : bookmarkedIcon}
+            src={props.isBookmark ? bookmarkedIcon : bookmarkIcon}
             className={classes.icon}
             alt=""
           />

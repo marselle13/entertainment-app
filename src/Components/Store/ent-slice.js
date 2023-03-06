@@ -33,6 +33,11 @@ const entSlice = createSlice({
       );
       state.series = series;
     },
+    toggle(state, action) {
+      const itemTitle = action.payload;
+      const findBookmark = state.items.find((item) => item.title === itemTitle);
+      findBookmark.isBookmarked = !findBookmark.isBookmarked;
+    },
   },
 });
 

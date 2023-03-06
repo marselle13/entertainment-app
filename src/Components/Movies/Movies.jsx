@@ -14,6 +14,10 @@ const Movies = () => {
     dispatch(entActions.filterMovies("movies"));
   }, [ent, dispatch]);
 
+  const bookmarkHandler = (title) => {
+    dispatch(entActions.toggle(title));
+  };
+
   return (
     <div className={classes.movies}>
       <h3 className={classes.label}>Movies</h3>
@@ -28,6 +32,7 @@ const Movies = () => {
               isBookmark={item.isBookmarked}
               type={item.category}
               year={item.year}
+              onClick={() => bookmarkHandler(item.title)}
             />
           );
         })}

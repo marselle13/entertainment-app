@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,7 +8,6 @@ import { entActions } from "../Store/ent-slice";
 
 const Slide = () => {
   const ent = useSelector((state) => state.ent.items);
-  const trending = useSelector((state) => state.ent.trendings);
   const dispatch = useDispatch();
   const settings = {
     dots: false,
@@ -38,9 +37,6 @@ const Slide = () => {
       },
     ],
   };
-  useEffect(() => {
-    dispatch(entActions.filterTrending());
-  }, [ent, dispatch]);
 
   const bookmarkHandler = (title) => {
     dispatch(entActions.toggle(title));
@@ -54,19 +50,22 @@ const Slide = () => {
       }}
     >
       <Slider {...settings}>
-        {trending.map((item, index) => {
-          return (
-            <CardSlider
-              title={item.title}
-              background={item.thumbnail.trending.large}
-              key={index}
-              year={item.year}
-              type={item.category}
-              rating={item.rating}
-              isBookmark={item.isBookmarked}
-              onClick={() => bookmarkHandler(item.title)}
-            />
-          );
+        {ent.map((item, index) => {
+          if (item.isTrending) {
+            return (
+              <CardSlider
+                title={item.title}
+                background={item.thumbnail.trending.large}
+                key={index}
+                year={item.year}
+                type={item.category}
+                rating={item.rating}
+                isBookmark={item.isBookmarked}
+                onClick={() => bookmarkHandler(item.title)}
+              />
+            );
+          }
+          return true;
         })}
       </Slider>
     </div>

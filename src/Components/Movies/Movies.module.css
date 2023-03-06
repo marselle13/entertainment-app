@@ -1,6 +1,3 @@
-.movies {
-}
-
 .movies .label {
   font-weight: 300;
   font-size: 32px;
@@ -13,7 +10,6 @@
   .movies {
     margin: 24px;
   }
-
 }
 
 @media (max-width: 620px) {

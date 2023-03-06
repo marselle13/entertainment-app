@@ -5,7 +5,6 @@ import CardInfo from "./CardInfo";
 import PlayButton from "./PlayButton";
 
 const Card = (props) => {
-  console.log(props);
   return (
     <div className={classes.normalCard}>
       <div className={classes.cardImage}>

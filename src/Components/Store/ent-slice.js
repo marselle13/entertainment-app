@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { items: [], trendings: [], recommened: [] };
+const initialState = {
+  items: [],
+  trendings: [],
+  recommened: [],
+  movies: [],
+  series: [],
+};
 
 const entSlice = createSlice({
   name: "ent",
@@ -16,6 +22,16 @@ const entSlice = createSlice({
     filterRec(state) {
       const recommend = state.items.filter((item) => item.isTrending === false);
       state.recommened = recommend;
+    },
+    filterMovies(state) {
+      const movies = state.items.filter((item) => item.category === "Movie");
+      state.movies = movies;
+    },
+    filterSeries(state) {
+      const series = state.items.filter(
+        (item) => item.category === "TV Series"
+      );
+      state.series = series;
     },
   },
 });

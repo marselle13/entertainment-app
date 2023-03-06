@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { entActions } from "../Store/ent-slice";
 import Card from "../UI/Card";
-import classes from "./Recommend.module.css";
+import Grid from "../UI/Grid";
 
 const Recommend = () => {
   const ent = useSelector((state) => state.ent.items);
@@ -13,7 +13,7 @@ const Recommend = () => {
   }, [ent, dispatch]);
 
   return (
-    <div className={classes.grid}>
+    <Grid>
       {rec.map((item, index) => {
         return (
           <Card
@@ -27,7 +27,7 @@ const Recommend = () => {
           />
         );
       })}
-    </div>
+    </Grid>
   );
 };
 

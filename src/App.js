@@ -5,7 +5,7 @@ import Bookmark from "./Components/Bookmarks/Bookmarks";
 import Home from "./Components/Home/Home";
 import Layout from "./Components/Layout/Layout";
 import Movies from "./Components/Movies/Movies";
-import Series from "./Components/Series/series";
+import Series from "./Components/Series/Series";
 import { fetchEntData } from "./Components/Store/ent-slice";
 
 function App() {

@@ -1,33 +1,34 @@
 import Slide from "./Slide";
-import classes from "./Home.module.css";
 import Recommend from "./Recommend";
-
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LoadingSpinner from "../UI/LoadingSpinner";
-
+import SearchBar from "../Layout/SearchBar";
+import { entActions } from "../Store/ent-slice";
+import { useState } from "react";
 const Home = () => {
-  const loading = useSelector((state) => state.ent.isLoading);
+  const [searching, setSearching] = useState(false);
   const ent = useSelector((state) => state.ent.items);
+
+  const dispatch = useDispatch();
+
+  const homeSearch = (e) => {
+    dispatch(entActions.search({ value: e.target.value, type: "ALL" }));
+    if (e.target.value !== "") {
+      setSearching(true);
+    } else {
+      setSearching(false);
+    }
+  };
+
   return (
     <>
-      {loading && ent.length === 0 && (
-        <div className={classes.spinner}>
-          <LoadingSpinner />
-        </div>
-      )}
-      {!loading && ent.length !== 0 && (
-        <>
-          <div className={classes.slider}>
-            <h3 className={classes.label}>Trending</h3>
-
-            <Slide />
-          </div>
-          <div className={classes.recommend}>
-            <h3 className={classes.label}>Recommended for you</h3>
-            <Recommend />
-          </div>
-        </>
-      )}
+      <SearchBar
+        placeholder="Search for movies or TV series"
+        onChange={(e) => homeSearch(e)}
+      />
+      {ent.length === 0 && <LoadingSpinner />}
+      {ent.length !== 0 && !searching && <Slide />}
+      {ent.length !== 0 && !searching && <Recommend />}
     </>
   );
 };

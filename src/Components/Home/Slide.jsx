@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useDispatch, useSelector } from "react-redux";
 import CardSlider from "../UI/CardSlider";
 import { entActions } from "../Store/ent-slice";
+import classes from "./Home.module.css";
 
 const Slide = () => {
   const ent = useSelector((state) => state.ent.items);
@@ -43,12 +44,8 @@ const Slide = () => {
   };
 
   return (
-    <div
-      style={{
-        position: "relative",
-        maxWidth: "1700px",
-      }}
-    >
+    <div className={classes.slider}>
+      <h3 className={classes.label}>Trending</h3>
       <Slider {...settings}>
         {ent.map((item, index) => {
           if (item.isTrending) {

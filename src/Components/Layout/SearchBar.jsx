@@ -1,13 +1,17 @@
 import searchIcon from "../assets/search-icon.svg";
 import classes from "./SearchBar.module.css";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   return (
     <form>
       <div className={classes.searchBar}>
         <img src={searchIcon} alt="" />
         <div className={classes.searchInput}>
-          <input type="text" placeholder="Search for movies or TV series" />
+          <input
+            type="text"
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+          />
           <div className={classes.border}></div>
         </div>
       </div>

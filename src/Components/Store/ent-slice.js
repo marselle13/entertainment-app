@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  search: [],
   items: [],
   isLoading: false,
 };
@@ -19,6 +20,20 @@ const entSlice = createSlice({
     },
     loading(state, action) {
       state.isLoading = action.payload;
+    },
+
+    search(state, action) {
+      switch (action.payload.type) {
+        case "ALL":
+          const searchTerm = action.payload.value.toLowerCase();
+          const search = state.items.filter((item) => {
+            return item.title.toLowerCase().includes(searchTerm);
+          });
+          state.search = search;
+          break;
+        default:
+          return state;
+      }
     },
   },
 });

@@ -1,12 +1,9 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Bookmark from "./Components/Bookmarks/Bookmarks";
-import Home from "./Components/Home/Home";
 import Layout from "./Components/Layout/Layout";
-import Movies from "./Components/Movies/Movies";
-import Series from "./Components/Series/Series";
 import { fetchEntData } from "./Components/Store/ent-slice";
+import LoadingSpinner from "./Components/UI/LoadingSpinner";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,15 +11,22 @@ function App() {
     dispatch(fetchEntData());
   }, [dispatch]);
 
+  const Home = lazy(() => import("./Components/Home/Home"));
+  const Movies = lazy(() => import("./Components/Movies/Movies"));
+  const Series = lazy(() => import("./Components/Series/Series"));
+  const Bookmark = lazy(() => import("./Components/Bookmarks/Bookmarks"));
+
   return (
     <Layout>
-      <Routes>
-        <Route path="*" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/series" element={<Series />} />
-        <Route path="/bookmarks" element={<Bookmark />} />
-      </Routes>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="*" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/bookmarks" element={<Bookmark />} />
+        </Routes>
+      </Suspense>
     </Layout>
   );
 }

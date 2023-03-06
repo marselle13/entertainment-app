@@ -5,3 +5,15 @@
   letter-spacing: -0.5px;
   color: #ffffff;
 }
+
+@media (max-width: 1024px) {
+  .bookmark {
+    margin: 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  .bookmark {
+    margin: 16px;
+  }
+}

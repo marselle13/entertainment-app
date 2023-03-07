@@ -82,4 +82,8 @@
     margin: 0;
     border-radius: 0;
   }
+
+  .navigation ul {
+    gap: 24px;
+  }
 }

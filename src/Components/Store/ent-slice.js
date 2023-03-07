@@ -16,7 +16,11 @@ const entSlice = createSlice({
     toggle(state, action) {
       const itemTitle = action.payload;
       const findBookmark = state.items.find((item) => item.title === itemTitle);
+      const findBookmarkSearch = state.search.find(
+        (item) => item.title === itemTitle
+      );
       findBookmark.isBookmarked = !findBookmark.isBookmarked;
+      findBookmarkSearch.isBookmarked = !findBookmarkSearch;
     },
     loading(state, action) {
       state.isLoading = action.payload;

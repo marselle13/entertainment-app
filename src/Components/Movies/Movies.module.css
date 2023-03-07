@@ -16,4 +16,9 @@
   .movies {
     margin: 16px;
   }
+
+  .movies .label {
+    font-size: 20px;
+    line-height: 25px;
+  }
 }

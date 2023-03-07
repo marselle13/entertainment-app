@@ -5,19 +5,17 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import SearchBar from "../Layout/SearchBar";
 import { entActions } from "../Store/ent-slice";
 import { useState } from "react";
+import Searching from "../Layout/Searching";
 const Home = () => {
-  const [searching, setSearching] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const ent = useSelector((state) => state.ent.items);
 
   const dispatch = useDispatch();
 
   const homeSearch = (e) => {
+    e.preventDefault();
     dispatch(entActions.search({ value: e.target.value, type: "ALL" }));
-    if (e.target.value !== "") {
-      setSearching(true);
-    } else {
-      setSearching(false);
-    }
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -26,9 +24,10 @@ const Home = () => {
         placeholder="Search for movies or TV series"
         onChange={(e) => homeSearch(e)}
       />
+      {searchTerm && <Searching search={searchTerm} />}
       {ent.length === 0 && <LoadingSpinner />}
-      {ent.length !== 0 && !searching && <Slide />}
-      {ent.length !== 0 && !searching && <Recommend />}
+      {ent.length !== 0 && !searchTerm && <Slide />}
+      {ent.length !== 0 && !searchTerm && <Recommend />}
     </>
   );
 };

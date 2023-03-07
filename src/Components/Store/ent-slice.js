@@ -23,17 +23,19 @@ const entSlice = createSlice({
     },
 
     search(state, action) {
-      switch (action.payload.type) {
-        case "ALL":
-          const searchTerm = action.payload.value.toLowerCase();
-          const search = state.items.filter((item) => {
-            return item.title.toLowerCase().includes(searchTerm);
-          });
-          state.search = search;
-          break;
-        default:
-          return state;
-      }
+      const searchTerm = action.payload.value.toLowerCase();
+
+      state.search = state.items.filter((item) => {
+        const matchTerm = item.title.toLowerCase().includes(searchTerm);
+        const matchType =
+          action.payload.type === "ALL" ||
+          item.category === action.payload.type;
+        return (
+          matchTerm &&
+          (matchType ||
+            (action.payload.type === "BOOKMARK" && item.isBookmarked))
+        );
+      });
     },
   },
 });

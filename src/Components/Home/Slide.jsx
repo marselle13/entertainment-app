@@ -58,7 +58,9 @@ const Slide = () => {
                 type={item.category}
                 rating={item.rating}
                 isBookmark={item.isBookmarked}
-                onClick={() => bookmarkHandler(item.title)}
+                onClick={() =>
+                  bookmarkHandler({ title: item.title, type: "ITEM" })
+                }
               />
             );
           }

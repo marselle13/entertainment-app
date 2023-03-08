@@ -27,7 +27,9 @@ const Recommend = () => {
                 rating={item.rating}
                 background={item.thumbnail.regular.large}
                 isBookmark={item.isBookmarked}
-                onClick={() => bookmarkHandler(item.title)}
+                onClick={() =>
+                  bookmarkHandler({ title: item.title, type: "ITEM" })
+                }
               />
             );
           }

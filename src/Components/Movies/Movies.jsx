@@ -43,7 +43,7 @@ const Movies = () => {
                       isBookmark={item.isBookmarked}
                       type={item.category}
                       year={item.year}
-                      onClick={() => bookmarkHandler(item.title)}
+                      onClick={() => bookmarkHandler({ title: item.title, type: "ITEM" })}
                     />
                   );
                 }

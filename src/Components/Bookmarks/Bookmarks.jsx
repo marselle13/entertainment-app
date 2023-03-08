@@ -49,7 +49,9 @@ const Bookmark = () => {
                         year={item.year}
                         isBookmark={item.isBookmarked}
                         rating={item.rating}
-                        onClick={() => bookmarkHandler(item.title)}
+                        onClick={() =>
+                          bookmarkHandler({ title: item.title, type: "ITEM" })
+                        }
                       />
                     );
                   }

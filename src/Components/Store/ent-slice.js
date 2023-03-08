@@ -14,14 +14,27 @@ const entSlice = createSlice({
       state.items = action.payload;
     },
     toggle(state, action) {
-      const itemTitle = action.payload;
+      const itemTitle = action.payload.title;
       const findBookmark = state.items.find((item) => item.title === itemTitle);
-      const findBookmarkSearch = state.search.find(
-        (item) => item.title === itemTitle
-      );
-      findBookmark.isBookmarked = !findBookmark.isBookmarked;
-      findBookmarkSearch.isBookmarked = !findBookmarkSearch;
+
+      switch (action.payload.type) {
+        case "ITEM":
+          findBookmark.isBookmarked = !findBookmark.isBookmarked;
+          break;
+        case "SEARCH":
+          const findSearchBookmark = state.search.find(
+            (item) => item.title === itemTitle
+          );
+          findSearchBookmark.isBookmarked = !findSearchBookmark.isBookmarked;
+          findBookmark.isBookmarked = findSearchBookmark.isBookmarked;
+          break;
+        default:
+          return state;
+      }
     },
+
+    toggleSearch(state, action) {},
+
     loading(state, action) {
       state.isLoading = action.payload;
     },
